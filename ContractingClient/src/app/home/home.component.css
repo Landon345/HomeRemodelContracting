@@ -1,0 +1,14 @@
+.backgroundimg{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh
+}
+
+.center{
+    margin: auto;
+    text-align: center;
+}
+li{
+    list-style: none;
+}
