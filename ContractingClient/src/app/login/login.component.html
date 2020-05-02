@@ -1,11 +1,11 @@
-<form>
+<form (submit)="login()" ngNativeValidate>
     <div class="form-group">
-      <label for="exampleInputEmail1">Username</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <label for="username">Username</label>
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "username" type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label for="password">Password</label>
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "password" type="password" class="form-control" id="password" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

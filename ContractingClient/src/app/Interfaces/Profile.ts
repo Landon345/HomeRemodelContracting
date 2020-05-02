@@ -13,5 +13,4 @@ export class Profile {
     profile_description: string;
     picture_path: string;
     years_experience: number;
-    profile_skills: Skill[]
 }

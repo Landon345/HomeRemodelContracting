@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HomeRemodelContracting';
+  username: string = sessionStorage.getItem('username');
+  myfalse: boolean = false;
+
+
+
+  Logout(): void{
+    sessionStorage.removeItem("username");
+    location.reload();
+  }
 }

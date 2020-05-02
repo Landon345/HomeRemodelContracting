@@ -15,10 +15,7 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ['url', 'name']
 
         
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = '__all__'
+
 
 
 class ProfessionSerializer(serializers.ModelSerializer):
@@ -31,3 +28,9 @@ class SkillsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skills
         fields = '__all__'
+
+class ProfileSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Profile
+        fields = '__all__'    

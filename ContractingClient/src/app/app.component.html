@@ -1,19 +1,40 @@
+<div *ngIf="username; else elseBlock">
 
-<nav>
-  <div class="navbar color">
+  <nav>
+    <div class="navbar color">
       
-          <a class="nav-link" href="/home">Home</a>
+      <a class="nav-link" href="/home">Home</a>
+      
         
-        
-          <a class="nav-link" href="/contractors">Contractors</a>
-        
-        
-          <a class="nav-link" href="/login">Login</a>
-       
-          <a class="nav-link" href="/register">Register</a>
+      <a class="nav-link" href="/contractors">Contractors</a>
+      
+
+      <button class="btn btn-primary" (click) = "Logout()">Logout</button>
       <span class="navbar-text">
         Home Remodel Contracting
       </span>
-  </div>
-</nav>
-<router-outlet></router-outlet>
+    </div>
+  </nav>
+</div>
+
+<ng-template #elseBlock>
+  <nav>
+    <div class="navbar color">
+      
+      <a class="nav-link" href="/home">Home</a>
+      
+        
+      <a class="nav-link" href="/contractors">Contractors</a>
+      
+      
+      <a class="nav-link" href="/login">Login</a>
+      
+      <a class="nav-link" href="/register">Register</a>
+      <span class="navbar-text">
+        Home Remodel Contracting
+      </span>
+    </div>
+  </nav>
+
+</ng-template>
+  <router-outlet></router-outlet>

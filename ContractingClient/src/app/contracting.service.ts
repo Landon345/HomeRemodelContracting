@@ -15,6 +15,7 @@ export class ContractingService {
   private profileUrl = 'http://localhost:8000/Profile/?format=json';
   private professionUrl = 'http://localhost:8000/Profession/?format=json';
   private skillUrl = 'http://localhost:8000/Skills/?format=json';
+  private profileQuery = 'http://localhost:8000/ProfileQuery/?format=json';
 
   //define headers
   httpOptions = {
@@ -54,8 +55,40 @@ export class ContractingService {
       catchError(this.handleError<Skill[]>('getSkills', []))
     )
   }
+  getSpecificProfile(username, password): Observable<Profile[]>{
+    console.log(this.profileQuery + `&username=${username}&password=${password}`);
+    return this.http.get<any>(this.profileQuery + `&username=${username}&password=${password}`)
+    .pipe(
+      tap(_=> console.log('fetched profile')),
+      catchError(this.handleError<Profile>('getProfile', null))
+    )
+  }
 
-  
+  createProfile(profile: Profile): Observable<Profile>{
+    console.log(profile.username);
+    return this.http.post("http://localhost:8000/Profile/", JSON.stringify(profile), this.httpOptions)
+    .pipe(
+      tap((newProfile: any)=>console.log(`added profile w/ username=${newProfile.msg}`)),
+      catchError(this.handleError<Profile>('createProfile'))
+    )
+  }
+  createProfession(profession: Profession): Observable<Profession>{
+    console.log(profession);
+    return this.http.post("http://localhost:8000/Profession/", JSON.stringify(profession), this.httpOptions)
+    .pipe(
+      tap((newProfile: any)=>console.log(`added profile w/ username=${newProfile.msg}`)),
+      catchError(this.handleError<Profile>('createProfile'))
+    )
+  }
+  createSkills(myskill: string, username: string): Observable<Skill>{
+    console.log(myskill);
+    const skill = {id: null, myprofile: username, myprofession: myskill};
+    console.log(skill);
+    return this.http.post("http://localhost:8000/Skills/", JSON.stringify(skill), this.httpOptions)
+    .pipe(
+      tap((newSkills:any) => console.log(`added skills w/ myprofile=${newSkills.msg}`))
+    )
+  }
   
   /**
    * Handle Http operation that failed.
