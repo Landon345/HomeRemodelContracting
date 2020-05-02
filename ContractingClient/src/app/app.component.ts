@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +11,13 @@ export class AppComponent {
   username: string = sessionStorage.getItem('username');
   myfalse: boolean = false;
 
+  constructor(private location: Location){
 
+  }
 
   Logout(): void{
     sessionStorage.removeItem("username");
+    this.location.go('/home');
     location.reload();
   }
 }

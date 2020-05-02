@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from '../Interfaces/Profile';
+import {ContractingService} from '../contracting.service';
 
 @Component({
   selector: 'app-contractors',
@@ -7,13 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractorsComponent implements OnInit {
   username: string;
-  constructor() { }
+  profiles: Profile[];
+  constructor(private contractingService: ContractingService) { }
 
   ngOnInit(): void {
     this.getUsername();
+    this.getProfiles();
   }
 
   getUsername(): void{
     this.username = sessionStorage.getItem('username');
+  }
+  getProfiles(): void {
+    this.contractingService.getProfiles().subscribe(theprofiles=>{
+      this.profiles = theprofiles;
+    })
+  }
+
+  searchList(searchString: string): void {
+
   }
 }

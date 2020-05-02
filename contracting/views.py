@@ -34,6 +34,16 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
+    def get_queryset(self):
+        queryset = Profile.objects.all()
+
+        username = self.request.query_params.get('username', '')
+        password = self.request.query_params.get('password', '')
+        if username and password:
+            return queryset.filter(username=username, password=password)
+        else:
+            return queryset
+
 
 class ProfessionViewSet(viewsets.ModelViewSet):
     queryset = Profession.objects.all()
@@ -43,6 +53,15 @@ class ProfessionViewSet(viewsets.ModelViewSet):
 class SkillsViewSet(viewsets.ModelViewSet):
     queryset = Skills.objects.all()
     serializer_class = SkillsSerializer
+
+    def get_queryset(self):
+        queryset = Skills.objects.all()
+
+        username = self.request.query_params.get('username', '')
+        if username:
+            return queryset.filter(myprofile=username)
+        else:
+            return queryset
 
 
 class ProfileQueryView(viewsets.ModelViewSet):

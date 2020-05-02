@@ -35,6 +35,14 @@ export class ContractingService {
     )
   }
 
+  getProfile(username: string): Observable<Profile>{
+    return this.http.get<any>(`http://localhost:8000/Profile/${username}/?format=json`)
+    .pipe(
+      tap(_=> console.log('fetched profile')),
+      catchError(this.handleError<Profile>('getProfile', null))
+    )
+  }
+
   /**
    * get the professions from the server
    */
@@ -55,9 +63,19 @@ export class ContractingService {
       catchError(this.handleError<Skill[]>('getSkills', []))
     )
   }
+  /**
+   * get the Skills of specific user from the server
+   */
+  getProfileSkills(username: string): Observable<Skill[]>{
+    return this.http.get<any>(this.skillUrl + `&username=${username}`)
+    .pipe(
+      tap(_=> console.log('fetched skills')),
+      catchError(this.handleError<Skill[]>('getSkills', []))
+    )
+  }
   getSpecificProfile(username, password): Observable<Profile[]>{
-    console.log(this.profileQuery + `&username=${username}&password=${password}`);
-    return this.http.get<any>(this.profileQuery + `&username=${username}&password=${password}`)
+    console.log(this.profileUrl + `&username=${username}&password=${password}`);
+    return this.http.get<any>(this.profileUrl + `&username=${username}&password=${password}`)
     .pipe(
       tap(_=> console.log('fetched profile')),
       catchError(this.handleError<Profile>('getProfile', null))
@@ -87,6 +105,22 @@ export class ContractingService {
     return this.http.post("http://localhost:8000/Skills/", JSON.stringify(skill), this.httpOptions)
     .pipe(
       tap((newSkills:any) => console.log(`added skills w/ myprofile=${newSkills.msg}`))
+    )
+  }
+
+  updateProfile(username: string, profile: Profile): Observable<Profile> {
+    console.log(username);
+    return this.http.put(`http://localhost:8000/Profile/${username}/`, JSON.stringify(profile), this.httpOptions)
+    .pipe(
+      tap((updatedProfile: any)=>console.log(`updated profile w/ username=${updatedProfile.username}`))
+    )
+  }
+
+  deleteSkills(myskillID: number): Observable<Skill>{
+    console.log(myskillID);
+    return this.http.delete(`http://localhost:8000/Skills/${myskillID}/`, this.httpOptions)
+    .pipe(
+      tap((newSkills:any) => console.log(`deleted skills w/ id=${myskillID}`))
     )
   }
   

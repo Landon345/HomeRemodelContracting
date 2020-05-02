@@ -8,7 +8,7 @@ ROUTER = routers.DefaultRouter()
 ROUTER.register('Profile', views.ProfileViewSet)
 ROUTER.register('Profession', views.ProfessionViewSet)
 ROUTER.register('Skills', views.SkillsViewSet)
-ROUTER.register('ProfileQuery', views.ProfileQueryView)
+# ROUTER.register('ProfileQuery', views.ProfileQueryView)
 ROUTER.register(r'users', views.UserViewSet)
 ROUTER.register(r'groups', views.GroupViewSet)
 urlpatterns = [

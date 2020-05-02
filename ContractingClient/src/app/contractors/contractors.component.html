@@ -1,1 +1,21 @@
 <h1>{{username}}</h1>
+
+<input
+#searchContractor
+type="text"
+placeholder="search for Contractor"
+(keyup)="searchList(searchContractor.value)"
+/>
+<div class="row">
+
+    <div class="col-6" *ngFor="let profile of profiles">
+        
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">{{profile.company_name}}</div>
+            <div class="card-body">
+                <p class="card-title">phone: {{profile.phonenumber}}</p>
+                <p class="card-text">location: {{profile.city}}, {{profile.state}}</p>
+            </div>
+        </div>
+    </div>
+</div>
