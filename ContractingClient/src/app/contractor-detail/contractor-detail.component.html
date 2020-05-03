@@ -1,1 +1,29 @@
-<p>contractor-detail works!</p>
+<div *ngIf="profile; else elseBlock">
+
+    <div class="container">
+
+        <h1>Company name: {{profile.company_name}}</h1>
+
+        <h3>Email: {{profile.email}}</h3>
+        <h3>Phone Number: {{profile.phonenumber}}</h3>
+        <h3>From: {{profile.city}}, {{profile.state}}</h3>
+        <h3>Rating: {{profile.rating}}</h3>
+        <h3>Years of Experience: {{profile.years_experience}}</h3>
+        <h3>More about the company: {{profile.profile_description}}</h3>
+
+        
+        <h1>Expertise: </h1>
+        <div *ngFor="let skill of skills">
+            {{skill.myprofession}}
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+    
+    <h1>No Profile Exists of {{param}}</h1>
+
+
+
+
+
+</ng-template>

@@ -10,6 +10,11 @@ import {ContractingService} from '../contracting.service';
 export class ContractorsComponent implements OnInit {
   username: string;
   profiles: Profile[];
+  city: string;
+  state: string;
+  company_name: string;
+  professions: string[];
+  
   constructor(private contractingService: ContractingService) { }
 
   ngOnInit(): void {
@@ -26,7 +31,9 @@ export class ContractorsComponent implements OnInit {
     })
   }
 
-  searchList(searchString: string): void {
-
+  search(): void {
+    this.contractingService.search(this.city, this.state, this.company_name, this.professions).subscribe(theprofiles=>{
+      this.profiles = theprofiles;
+    })
   }
 }

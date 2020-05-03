@@ -4,7 +4,7 @@ from rest_framework import viewsets, permissions, views, generics
 from rest_framework.response import Response
 from .models import Profile, Profession, Skills
 from .serializers import ProfileSerializer, SkillsSerializer, ProfessionSerializer
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer, GroupSerializer, searchProfilesSerializer
 from django.db import connection
 from django.db import models
 from urllib.parse import urlencode
@@ -66,16 +66,23 @@ class SkillsViewSet(viewsets.ModelViewSet):
 
 class ProfileQueryView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
+    serializer_class = searchProfilesSerializer
 
     def get_queryset(self):
         queryset = Profile.objects.all()
 
-        username = self.request.query_params.get('username', '')
-        password = self.request.query_params.get('password', '')
-        if username and password:
-            return queryset.filter(username=username, password=password)
+        city = self.request.query_params.get('city', '')
+        state = self.request.query_params.get('state', '')
+        company_name = self.request.query_params.get('companyname', '')
+        skills_string = self.request.query_params.get('skills', '')
+
+        print(city, state, company_name, skills_string)
+
+        if city and state and company_name and skills_string:
+            queryset = Profile.objects.filter(city = city)
+            return queryset
         else:
             return queryset
+        
 
         

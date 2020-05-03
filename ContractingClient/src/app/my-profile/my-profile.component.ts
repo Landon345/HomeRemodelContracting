@@ -38,7 +38,7 @@ export class MyProfileComponent implements OnInit {
   }
   save(): void {
     console.log(this.profile);
-
+    this.getProfessions();
     this.contractingService
       .updateProfile(this.profile.username, this.profile)
       .subscribe(() => {
