@@ -10,9 +10,9 @@ import {ContractingService} from '../contracting.service';
 export class ContractorsComponent implements OnInit {
   username: string;
   profiles: Profile[];
-  city: string;
-  state: string;
-  company_name: string;
+  city: string = "";
+  state: string = "";
+  company_name: string = "";
   professions: string[];
   
   constructor(private contractingService: ContractingService) { }

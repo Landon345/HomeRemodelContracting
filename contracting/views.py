@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from rest_framework import viewsets, permissions, views, generics
 from rest_framework.response import Response
@@ -39,10 +40,16 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
         username = self.request.query_params.get('username', '')
         password = self.request.query_params.get('password', '')
-        if username and password:
-            return queryset.filter(username=username, password=password)
-        else:
-            return queryset
+        for p in Profile.objects.raw('SELECT username, password FROM contracting_profile WHERE username = %s', [username]):
+            print(p.password, password)
+            if(check_password(password, p.password)):
+                return queryset.filter(username=username)
+
+
+        # if username and password:
+        #     return queryset.filter(username=username, password=password)
+        # else:
+        return queryset
 
 
 class ProfessionViewSet(viewsets.ModelViewSet):
@@ -77,12 +84,31 @@ class ProfileQueryView(viewsets.ModelViewSet):
         skills_string = self.request.query_params.get('skills', '')
 
         print(city, state, company_name, skills_string)
+        myskills = skills_string.split(',')
+        print(myskills)
 
-        if city and state and company_name and skills_string:
-            queryset = Profile.objects.filter(city = city)
+        if skills_string and city:
+            queryset = Profile.objects.filter(city__icontains=city)
+            return queryset
+        elif skills_string:
+            queryset = Profile.objects.filter(
+                profile_skills__in=myskills).distinct()
+            print(queryset)
+            return queryset
+        elif city and state and company_name:
+            queryset = Profile.objects.filter(city__icontains=city).filter(
+                state__icontains=state).filter(company_name__icontains=company_name)
+            # queryset = queryset.filter()
+            return queryset
+        elif company_name:
+            queryset = Profile.objects.filter(
+                company_name__icontains=company_name)
+            return queryset
+        elif city:
+            queryset = Profile.objects.filter(city__icontains=city)
+            return queryset
+        elif state:
+            queryset = Profile.objects.filter(state__icontains=state)
             return queryset
         else:
             return queryset
-        
-
-        
