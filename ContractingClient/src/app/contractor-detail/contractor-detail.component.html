@@ -1,29 +1,57 @@
 <div *ngIf="profile; else elseBlock">
-
-    <div class="container">
-
-        <h1>Company name: {{profile.company_name}}</h1>
-
-        <h3>Email: {{profile.email}}</h3>
-        <h3>Phone Number: {{profile.phonenumber}}</h3>
-        <h3>From: {{profile.city}}, {{profile.state}}</h3>
-        <h3>Rating: {{profile.rating}}</h3>
-        <h3>Years of Experience: {{profile.years_experience}}</h3>
-        <h3>More about the company: {{profile.profile_description}}</h3>
-
-        
-        <h1>Expertise: </h1>
-        <div *ngFor="let skill of skills">
-            {{skill.myprofession}}
+  <div>
+    <div class="background container">
+      <div class="row companyheader">
+        <h1 class="companyName">{{ profile.company_name }}</h1>
+      </div>
+      <hr />
+      <div class="row description">
+        <div class="col-sm-7">
+          <h2>Our Expertise:</h2>
+          <div class="row">
+            <div class="col-sm-4" *ngFor="let skill of skills">
+              {{ skill.myprofession }}
+            </div>
+          </div>
         </div>
+        <div class="col-sm-5 contact">
+          <h2>Contact Us:</h2>
+          <div class="row">
+            <h3 class="col-sm-4">Email</h3>
+            <h3 class="col-sm-8">{{ profile.email }}</h3>
+          </div>
+          <div class="row">
+            <h3 class="col-sm-4">Phone</h3>
+            <h3 class="col-sm-8">{{ profile.phonenumber }}</h3>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row info">
+        <div class="col-sm-4">
+          <h2>From</h2>
+          <h3>{{ profile.city }}, {{ profile.state }}</h3>
+        </div>
+        <div class="col-sm-4">
+            <h2>Rating</h2>
+          <h3>{{ profile.rating }}</h3>
+        </div>
+        <div class="col-sm-4">
+            <h2>Years of Experience</h2>
+          <h3>{{ profile.years_experience }}</h3>
+        </div>
+      </div>
+
+      <div class="center">
+        <h2>Description of Company</h2>
+
+        <h3 class="profile_description">{{ profile.profile_description }}</h3>
+      </div>
+      <div class="row"></div>
+      <div class="row"></div>
     </div>
+  </div>
 </div>
 <ng-template #elseBlock>
-    
-    <h1>No Profile Exists of {{param}}</h1>
-
-
-
-
-
+  <h1>No Profile Exists of {{ param }}</h1>
 </ng-template>

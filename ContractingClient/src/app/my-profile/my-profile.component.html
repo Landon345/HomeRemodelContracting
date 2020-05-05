@@ -1,87 +1,146 @@
 <div *ngIf="profile; else elseBlock">
-    
+  <div class="container">
+    <div class="form-group row mt-3">
+      <label class="col-sm-2 col-form-label" for="email">Email address</label>
+      <div class="col-sm-10">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          required
+        />
+      </div>
+    </div>
+
     <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="email">Email address</label>
-        <div class="col-sm-10">
-          <input  [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.email" type="email" class="form-control" id="email" placeholder="name@example.com" required/>
-        </div>
+      <label class="col-sm-2 col-form-label" for="phonenumber"
+        >Phone Number</label
+      >
+      <div class="col-sm-10">
+        <input
+          required
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.phonenumber"
+          type="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          class="form-control"
+          id="phonenumber"
+          placeholder="234-567-8999"
+        />
       </div>
-  
-      <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="phonenumber">Phone Number</label>
-        <div class="col-sm-10">
-          <input required [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.phonenumber" type="phonenumber" class="form-control" id="phonenumber" placeholder="234-567-8999"/>
-        </div>
-      </div>
-      
-      <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="company_name">company name</label>
-        <div class="col-sm-10">
-          <input required [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.company_name" type="text" class="form-control" name="company_name" id="company_name" placeholder="company name"/>
-        </div>      
-      </div>
-  
-      <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="City">City</label>
-        <div class="col-sm-10">
-          <input required [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.city" type="text" class="form-control" name="City" id="City" placeholder="City"/>
-        </div>      
-      </div>
-  
-      <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="State">State</label>
-        <div class="col-sm-10">
-          <input required [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.state" type="text" class="form-control" name="State" id="State" placeholder="State"/>
-        </div>      
-      </div>
-      
-      
-      
-      <div class="form-group">
-        <label for="professions">Professions/Skills   (Hold shift to select more than one)</label>
-        <select [ngModelOptions]="{standalone: true}" [(ngModel)] = "professions" multiple class="form-control" id="professions">
-          <option value="concrete">Concrete</option>
-          <option value="lights">Lights</option>
-          <option value="design">Design</option>
-          <option value="flooring">Flooring</option>
-          <option value="bathrooms">Bathrooms</option>
-          <option value="tile">Tile</option>
-          <option value="kitchen">Kitchen</option>
-          <option value="electrical">Electrical</option>
-          <option value="framing">Framing</option>
-          <option value="drywall">Drywall</option>
-          <option value="landscaping">Landscaping</option>
-          <option value="roofing">Roofing</option>
-        </select>
-      </div>
-  
-      <div class="form-group row">
-        <label class= "col-sm-2 col-form-label" for="YearExperience">Years of Experience</label>
-        <div class="col-sm-10">
-          <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "profile.years_experience" type="number" class="form-control" name="YearExperience" id="YearExperience" placeholder="0"/>
-        </div>      
-      </div>
-  
-      <div class="form-group">
-        <label for="description">Description of Company</label>
-        <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="profile.profile_description" class="form-control" id="description" rows="3"></textarea>
-      </div>
-  
-      <button class="btn btn-primary mb-2" (click)="save()">Save</button>
-    
-    
+    </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="company_name"
+        >company name</label
+      >
+      <div class="col-sm-10">
+        <input
+          required
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.company_name"
+          type="text"
+          class="form-control"
+          name="company_name"
+          id="company_name"
+          placeholder="company name"
+        />
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="City">City</label>
+      <div class="col-sm-10">
+        <input
+          required
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.city"
+          type="text"
+          class="form-control"
+          name="City"
+          id="City"
+          placeholder="City"
+        />
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="State">State</label>
+      <div class="col-sm-10">
+        <input
+          required
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.state"
+          type="text"
+          class="form-control"
+          name="State"
+          id="State"
+          placeholder="State"
+        />
+      </div>
+    </div>
 
+    <div class="form-group">
+      <label for="professions"
+        >Professions/Skills (Hold shift to select more than one)</label
+      >
+      <select
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="professions"
+        multiple
+        class="form-control"
+        id="professions"
+      >
+        <option value="concrete">Concrete</option>
+        <option value="lights">Lights</option>
+        <option value="design">Design</option>
+        <option value="flooring">Flooring</option>
+        <option value="bathrooms">Bathrooms</option>
+        <option value="tile">Tile</option>
+        <option value="kitchen">Kitchen</option>
+        <option value="electrical">Electrical</option>
+        <option value="framing">Framing</option>
+        <option value="drywall">Drywall</option>
+        <option value="landscaping">Landscaping</option>
+        <option value="roofing">Roofing</option>
+      </select>
+    </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="YearExperience"
+        >Years of Experience</label
+      >
+      <div class="col-sm-10">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="profile.years_experience"
+          type="number"
+          class="form-control"
+          name="YearExperience"
+          id="YearExperience"
+          placeholder="0"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description of Company (400 char max)</label>
+      <textarea
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="profile.profile_description"
+        class="form-control"
+        id="description"
+        maxlength="400"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <button class="btn btn-primary mb-2" (click)="save()">Save</button>
+  </div>
 </div>
 <ng-template #elseBlock>
-    
-    <h1>You aren't logged in.</h1>
-
-
-
-
-
+  <h1>You aren't logged in.</h1>
 </ng-template>

@@ -1,0 +1,13 @@
+.outline {
+  border: 2px solid #3af;
+  border-radius: 10px;
+  background-color: rgb(190, 237, 255);
+  padding: 50px;
+  margin-top: 50px;
+  width: 50%;
+  font-family: "PT Sans";
+}
+h3{
+    text-align: center;
+    
+}

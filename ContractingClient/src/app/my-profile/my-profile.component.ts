@@ -47,6 +47,7 @@ export class MyProfileComponent implements OnInit {
         console.log("updated");
         this.UpdateProfessions();
         this.getProfessions();
+        alert("Your Profile was saved.");
       });
 
     

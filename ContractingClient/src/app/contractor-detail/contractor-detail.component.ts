@@ -28,6 +28,7 @@ export class ContractorDetailComponent implements OnInit {
     const username: string = this.route.snapshot.paramMap.get('username');
     this.contractingService.getProfile(username).subscribe((myProfile) => {
       this.profile = myProfile;
+      this.profile.profile_description = this.profile.profile_description.slice(0, 400);
       console.log(this.profile);
     });
   }

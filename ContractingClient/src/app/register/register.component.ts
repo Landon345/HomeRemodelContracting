@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { Profile } from '../Interfaces/Profile';
 import { Skill } from '../Interfaces/Skill';
 import { ContractingService } from '../contracting.service';
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   professions: string[];
   profiles: Profile[];
 
-  constructor(private contractingService: ContractingService) {}
+  constructor(private contractingService: ContractingService, private location: Location) {}
 
   ngOnInit(): void {
     this.profile = {
@@ -51,6 +52,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(() => {
         console.log("created");
         this.addProfessions();
+        this.goContractors();
       });
 
     
@@ -67,6 +69,10 @@ export class RegisterComponent implements OnInit {
       console.log(myprofiles);
       this.profiles = myprofiles;
     });
+  }
+  goContractors() : void {
+    this.location.go('/contractors');
+    location.reload();
   }
   test(): void {
     const myprofile: Profile = {
