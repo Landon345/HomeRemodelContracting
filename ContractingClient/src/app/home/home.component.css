@@ -11,4 +11,15 @@
 }
 li{
     list-style: none;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.part2{
+    background-color: rgb(226, 149, 61);
+    padding-bottom: 5%;
+}
+.statement{
+    margin-left: 10%;
+    margin-top: 5%;
+    color: #222;
 }

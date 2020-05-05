@@ -3,24 +3,43 @@
   <nav>
     <div class="navbar color">
       
+
+      <span class="navbar-text logo">
+        Home Remodel Contracting
+      </span>
       <a class="nav-link" href="/home">Home</a>
       
         
       <a class="nav-link" href="/contractors">Contractors</a>
       
-      <a href="/myprofile" class="nav-link">My Profile</a>
-      <button class="btn btn-primary" (click) = "Logout()">Logout</button>
-      <span class="navbar-text">
-        Home Remodel Contracting
-      </span>
+      <!-- <a href="/myprofile" class="nav-link">My Profile</a>
+      <button class="btn btn-outline-light" (click) = "Logout()">Logout</button> -->
+      
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link bubble" title="Logged in as {{username}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+            {{letter}}
+          
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click) = "Logout()">Logout</a>
+          <a class="dropdown-item" href="/myprofile">My Profile</a>
+        </div>
+      </li>
+      
     </div>
   </nav>
 </div>
 
 <ng-template #elseBlock>
-  <nav>
-    <div class="navbar color">
-      
+  <nav class="">
+
+
+    <div class="color navbar">
+      <span class="navbar-text logo">
+        Home Remodel Contracting
+      </span>
       <a class="nav-link" href="/home">Home</a>
       
         
@@ -30,9 +49,7 @@
       <a class="nav-link" href="/login">Login</a>
       
       <a class="nav-link" href="/register">Register</a>
-      <span class="navbar-text">
-        Home Remodel Contracting
-      </span>
+      
     </div>
   </nav>
 

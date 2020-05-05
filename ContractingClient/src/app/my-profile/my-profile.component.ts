@@ -34,16 +34,19 @@ export class MyProfileComponent implements OnInit {
       this.skills = skills
       this.professions = skills.map(skill => {return skill.myprofession});
       console.log(this.professions);
+      console.log(this.skills);
     })
   }
   save(): void {
     console.log(this.profile);
-    this.getProfessions();
+    
+    console.log(this.professions);
     this.contractingService
       .updateProfile(this.profile.username, this.profile)
       .subscribe(() => {
         console.log("updated");
         this.UpdateProfessions();
+        this.getProfessions();
       });
 
     

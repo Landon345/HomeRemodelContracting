@@ -5,4 +5,36 @@
     color: white;
     text-decoration: black;
     font-size: 1.2rem;
+    transition: color .15s ease-in-out;
+}
+li{
+    text-decoration: none;
+    list-style-type: none;
+}
+a{
+    list-style-type: none;
+}
+.nav-link:hover{
+    color: rgb(204, 235, 255);
+    cursor: pointer;
+}
+.bubble{
+    width: 50px;
+    text-align: center;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 19px;
+    background-color: #3af;
+    border-radius: 50%;
+    border: 1px solid white;
+    
+}
+
+.dropdown-menu{
+    cursor: pointer;
+
+}
+.logo{
+    font-weight: bolder;
+    font-size: 20px;
 }
