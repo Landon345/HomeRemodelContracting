@@ -10,6 +10,7 @@ import { ContractorsComponent } from './contractors/contractors.component';
 import { ContractorDetailComponent } from './contractor-detail/contractor-detail.component';
 import { HomeComponent } from './home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     ContractorsComponent,
     ContractorDetailComponent,
     HomeComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

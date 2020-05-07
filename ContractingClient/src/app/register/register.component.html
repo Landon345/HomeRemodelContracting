@@ -11,7 +11,7 @@
           type="email"
           class="form-control"
           id="email"
-          placeholder="name@example.com"
+          placeholder=""
           required
         />
       </div>
@@ -30,30 +30,16 @@
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           class="form-control"
           id="phonenumber"
-          placeholder="234-567-8999"
+          placeholder=""
         />
+        <p>format: xxx-xxx-xxxx</p>
       </div>
     </div>
 
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="username">Username</label>
-      <div class="col-sm-10">
-        <input
-          required
-          [ngModelOptions]="{ standalone: true }"
-          [(ngModel)]="profile.username"
-          type="text"
-          class="form-control"
-          name="username"
-          id="username"
-          placeholder="username"
-        />
-      </div>
-    </div>
-
+    
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="company_name"
-        >company name</label
+      >company name</label
       >
       <div class="col-sm-10">
         <input
@@ -64,11 +50,11 @@
           class="form-control"
           name="company_name"
           id="company_name"
-          placeholder="company name"
+          placeholder=""
         />
       </div>
     </div>
-
+    
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="City">City</label>
       <div class="col-sm-10">
@@ -80,38 +66,38 @@
           class="form-control"
           name="City"
           id="City"
-          placeholder="City"
-        />
+          placeholder=""
+          />
       </div>
     </div>
-
+    
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="State">State</label>
       <div class="col-sm-10">
         <input
-          required
-          [ngModelOptions]="{ standalone: true }"
-          [(ngModel)]="profile.state"
+        required
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="profile.state"
           type="text"
           class="form-control"
           name="State"
           id="State"
-          placeholder="State"
-        />
+          placeholder=""
+          />
+        </div>
       </div>
-    </div>
-
-    <div class="form-group">
-      <label for="professions"
+      
+      <div class="form-group">
+        <label for="professions"
         >Professions/Skills (Hold ctrl to select more than one)</label
-      >
-      <select
+        >
+        <select
         [ngModelOptions]="{ standalone: true }"
         [(ngModel)]="professions"
         multiple
         class="form-control"
         id="professions"
-      >
+        >
         <option value="concrete">Concrete</option>
         <option value="lights">Lights</option>
         <option value="design">Design</option>
@@ -126,10 +112,10 @@
         <option value="roofing">Roofing</option>
       </select>
     </div>
-
+    
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="YearExperience"
-        >Years of Experience</label
+      >Years of Experience</label
       >
       <div class="col-sm-10">
         <input
@@ -143,23 +129,38 @@
         />
       </div>
     </div>
-
+    
     <div class="form-group">
       <label for="description">Description of Company (400 char max)</label>
       <textarea
-        [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="profile.profile_description"
-        class="form-control"
+      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]="profile.profile_description"
+      class="form-control"
         id="description"
         maxlength="400"
         rows="3"
-      ></textarea>
-    </div>
-
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label" for="Password">Password</label>
-      <div class="col-sm-10">
-        <input
+        ></textarea>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="username">Username</label>
+        <div class="col-sm-10">
+          <input
+            required
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="profile.username"
+            type="text"
+            class="form-control"
+            name="username"
+            id="username"
+            placeholder=""
+          />
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="Password">Password</label>
+        <div class="col-sm-10">
+          <input
           required
           [ngModelOptions]="{ standalone: true }"
           [(ngModel)]="profile.password"
@@ -167,7 +168,7 @@
           class="form-control"
           name="Password"
           id="Password"
-          placeholder="Password"
+          placeholder=""
         />
       </div>
     </div>
@@ -185,10 +186,11 @@
           class="form-control"
           name="Password_Confirmation"
           id="Password_Confirmation"
-          placeholder="Password_Confirmation"
+          placeholder=""
         />
       </div>
     </div>
     <button type="submit" class="btn btn-primary mb-2">Register</button>
   </form>
 </div>
+<app-footer></app-footer>

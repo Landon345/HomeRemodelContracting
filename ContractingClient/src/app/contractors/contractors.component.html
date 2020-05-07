@@ -1,4 +1,5 @@
 <div class="container mt-3">
+  <h3 class="heading">Search for a particular contractor</h3>
   <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="city">City</label>
     <div class="col-sm-10">
@@ -8,7 +9,7 @@
         type="text"
         class="form-control"
         id="city"
-        placeholder="city"
+        placeholder=""
       />
     </div>
   </div>
@@ -21,7 +22,7 @@
         type="text"
         class="form-control"
         id="state"
-        placeholder="state"
+        placeholder=""
       />
     </div>
   </div>
@@ -36,7 +37,7 @@
         type="text"
         class="form-control"
         id="company_name"
-        placeholder="company name"
+        placeholder=""
       />
     </div>
   </div>
@@ -70,6 +71,8 @@
   <button class="btn btn-primary mb-3" (click)="search()">Search</button>
 </div>
 <div class="container">
+  <h5>Results</h5>
+  <hr/>
   <div class="row">
     <div class="col-4" *ngFor="let profile of profiles">
       <div class="card text-black bg-light mb-3">
@@ -86,4 +89,7 @@
       </div>
     </div>
   </div>
+  
 </div>
+<app-footer></app-footer>
+

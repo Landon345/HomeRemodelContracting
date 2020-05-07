@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ContractingService} from '../contracting.service';
 import {Profile} from '../Interfaces/Profile';
 import {Skill} from '../Interfaces/Skill';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-my-profile',
@@ -12,7 +13,7 @@ export class MyProfileComponent implements OnInit {
   profile: Profile;
   professions: string[];
   skills: Skill[];
-  constructor(private contractingService: ContractingService) { }
+  constructor(private contractingService: ContractingService, private location: Location) { }
 
   ngOnInit(): void {
     this.getProfile()
@@ -48,6 +49,7 @@ export class MyProfileComponent implements OnInit {
         this.UpdateProfessions();
         this.getProfessions();
         alert("Your Profile was saved.");
+        this.location.back();
       });
 
     

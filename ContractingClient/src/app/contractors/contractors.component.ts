@@ -13,7 +13,7 @@ export class ContractorsComponent implements OnInit {
   city: string = "";
   state: string = "";
   company_name: string = "";
-  professions: string[];
+  professions: string[] = [""];
   
   constructor(private contractingService: ContractingService) { }
 

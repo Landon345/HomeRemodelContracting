@@ -1,3 +1,9 @@
 #professions{
     height: 200px;
 }
+.heading{
+    margin-bottom: 30px;
+}
+hr{
+    border-top: 1px solid gray;
+}

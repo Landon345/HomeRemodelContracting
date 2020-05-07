@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .backgroundimg{
     width: 100%;
     background-repeat: no-repeat;
@@ -11,15 +15,17 @@
 }
 li{
     list-style: none;
-    margin-left: 10%;
+    padding-left: 10%;
     margin-top: 2%;
+    margin-left: 5%;
 }
 .part2{
     background-color: rgb(226, 149, 61);
     padding-bottom: 5%;
 }
 .statement{
-    margin-left: 10%;
-    margin-top: 5%;
+    
+    padding-left: 10%;
+    padding-top: 5%;
     color: #222;
 }
