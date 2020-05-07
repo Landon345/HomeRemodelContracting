@@ -40,16 +40,15 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
         username = self.request.query_params.get('username', '')
         password = self.request.query_params.get('password', '')
-        for p in Profile.objects.raw('SELECT username, password FROM contracting_profile WHERE username = %s', [username]):
-            print(p.password, password)
-            if(check_password(password, p.password)):
-                return queryset.filter(username=username)
+        if username and password:
+            for p in Profile.objects.raw('SELECT username, password FROM contracting_profile WHERE username = %s', [username]):
+                print(p.password, password)
+                if(check_password(password, p.password)):
+                    return queryset.filter(username=username)
+        else:
+            return queryset
 
-
-        # if username and password:
-        #     return queryset.filter(username=username, password=password)
-        # else:
-        return queryset
+        return queryset.none();
 
 
 class ProfessionViewSet(viewsets.ModelViewSet):
