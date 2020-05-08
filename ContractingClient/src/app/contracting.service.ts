@@ -151,6 +151,15 @@ export class ContractingService {
         )
       );
   }
+  updateRating(rating, username): Observable<any> {
+    const body = {"rating": rating};
+    return this.http.put(`http://localhost:8000/updateRating/${username}/`, JSON.stringify(body), this.httpOptions)
+    .pipe(
+      tap((updatedRating: any)=> 
+        console.log(`Updated rating w/ rating=${updatedRating}`)
+      )
+    );
+  }
 
   search(
     city: string,

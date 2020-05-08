@@ -33,11 +33,11 @@
           <h3>{{ profile.city }}, {{ profile.state }}</h3>
         </div>
         <div class="col-sm-4">
-            <h2>Rating</h2>
+          <h2>Rating</h2>
           <h3>{{ profile.rating }}</h3>
         </div>
         <div class="col-sm-4">
-            <h2>Years of Experience</h2>
+          <h2>Years of Experience</h2>
           <h3>{{ profile.years_experience }}</h3>
         </div>
       </div>
@@ -47,7 +47,74 @@
 
         <h3 class="profile_description">{{ profile.profile_description }}</h3>
       </div>
-      <div class="row"></div>
+      <div>
+        <div>
+          <h2 class="center">Rate This Contractor</h2>
+          <form action="" (submit)="rate()">
+            <div class="row rating">
+              <div class="col-sm-2">
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="rating"
+                  type="radio"
+                  id="rate1"
+                  name="rating"
+                  value="1"
+                />
+                <label for="one">1</label>
+              </div>
+              <div class="col-sm-2">
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="rating"
+                  type="radio"
+                  id="rate2"
+                  name="rating"
+                  value="2"
+                />
+                <label for="two">2</label>
+              </div>
+              <div class="col-sm-2">
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="rating"
+                  type="radio"
+                  id="rate3"
+                  name="rating"
+                  value="3"
+                />
+                <label for="three">3</label>
+              </div>
+              <div class="col-sm-2">
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="rating"
+                  type="radio"
+                  id="rate4"
+                  name="rating"
+                  value="4"
+                />
+                <label for="three">4</label>
+              </div>
+              <div class="col-sm-2">
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="rating"
+                  type="radio"
+                  id="rate5"
+                  name="rating"
+                  value="5"
+                />
+                <label for="three">5</label>
+              </div>
+
+              <div class="col-sm-2 center">
+                <button class="btn btn-primary" type="submit">Rate</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="row"></div>
     </div>
   </div>
@@ -55,6 +122,6 @@
 
 <ng-template #elseBlock>
   <h1>No Profile Exists of {{ param }}</h1>
-  
 </ng-template>
+
 <app-footer></app-footer>

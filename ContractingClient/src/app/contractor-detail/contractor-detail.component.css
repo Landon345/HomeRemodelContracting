@@ -1,47 +1,53 @@
-#professions{
-    height: 200px;
+#professions {
+  height: 200px;
 }
-*{
-    background-color:rgb(223, 247, 252);
-    font-family: "PT Sans";
-}
-.background{
-    height: 101vh;
-}
-.companyheader{
-    padding-top: 50px;
-    padding-bottom: 10px;
-    text-align: center;
+* {
+  font-family: "PT Sans";
 }
 
-.companyName{
-    margin: auto;
-    text-align: center;
-    font-size: 50px;
-}
-.description{
-    
-    padding: 40px 0px 40px 40px;
-    font-size: 20px;
+.companyheader {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
-.contact{
+.companyName {
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+}
+.description {
+  padding: 40px 0px 40px 40px;
+  font-size: 20px;
+}
 
+.contact {
 }
-h3{
-    font-size: 20px;
+h3 {
+  font-size: 20px;
 }
-.center{
-    text-align: center;
-    margin: auto;
+.center {
+  text-align: center;
+  margin: auto;
 }
-.info{
-    padding: 20px 0px 40px 0px;
+.info {
+  padding: 20px 0px 40px 0px;
 }
-.profile_description{
-    text-align: left;
-    background-color: #fff;
-    border: 2px solid rgb(114, 250, 250);
-    border-radius: 10px;
-    padding: 30px;
+.profile_description {
+  text-align: left;
+  background-color: #fff;
+  border: 2px solid rgb(114, 250, 250);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 25px;
+}
+.rating {
+  text-align: center;
+}
+.col-sm-2 {
+  text-align: center;
+}
+label {
+  margin: 20px 0 20px 0px;
+  font-size: 20px;
 }

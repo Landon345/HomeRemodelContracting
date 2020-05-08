@@ -5,7 +5,7 @@ from rest_framework import viewsets, permissions, views, generics
 from rest_framework.response import Response
 from .models import Profile, Profession, Skills
 from .serializers import ProfileSerializer, SkillsSerializer, ProfessionSerializer
-from .serializers import UserSerializer, GroupSerializer, searchProfilesSerializer
+from .serializers import UserSerializer, GroupSerializer, searchProfilesSerializer, updateProfileRatingSerializer
 from django.db import connection
 from django.db import models
 from urllib.parse import urlencode
@@ -48,7 +48,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
         else:
             return queryset
 
-        return queryset.none();
+        return queryset.none()
 
 
 class ProfessionViewSet(viewsets.ModelViewSet):
@@ -111,3 +111,8 @@ class ProfileQueryView(viewsets.ModelViewSet):
             return queryset
         else:
             return queryset
+
+
+class updateRatingsView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = updateProfileRatingSerializer

@@ -4,6 +4,7 @@ import { ContractingService } from '../contracting.service';
 import { Profile } from '../Interfaces/Profile';
 import { Skill } from '../Interfaces/Skill';
 
+
 @Component({
   selector: 'app-contractor-detail',
   templateUrl: './contractor-detail.component.html',
@@ -12,7 +13,8 @@ import { Skill } from '../Interfaces/Skill';
 export class ContractorDetailComponent implements OnInit {
   profile: Profile;
   skills: Skill[];
-  param: string = this.route.snapshot.paramMap.get('username');;
+  param: string = this.route.snapshot.paramMap.get('username');
+  rating: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,5 +41,15 @@ export class ContractorDetailComponent implements OnInit {
       this.skills = mySkills;
       console.log(this.skills);
     }))
+  }
+
+  rate(): void {
+    if(this.rating){
+      this.contractingService.updateRating(this.rating, this.param).subscribe((ratingUpdate => {
+        console.log(ratingUpdate);
+        location.reload();
+      }))
+    }
+    console.log(this.rating);
   }
 }

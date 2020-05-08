@@ -58,3 +58,18 @@ class searchProfilesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = '__all__'
+
+class updateProfileRatingSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Profile
+        fields = ["rating", "number_of_ratings"]
+
+    def update(self, instance, validated_data):
+        total_rating = instance.rating * instance.number_of_ratings;
+        total_rating = total_rating + validated_data.get('rating', instance.rating)
+        mynumber_of_ratings = instance.number_of_ratings+1
+        instance.number_of_ratings = instance.number_of_ratings+1
+        finalRating = total_rating / mynumber_of_ratings
+        instance.rating = finalRating
+        instance.save()
+        return instance
